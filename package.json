@@ -1,8 +1,8 @@
 {
-  "name": "my-gatsby-site",
+  "name": "my-personal-site",
   "version": "1.0.0",
   "private": true,
-  "description": "my-gatsby-site",
+  "description": "My personal site",
   "author": "iBehruz",
   "keywords": [
     "gatsby"
@@ -17,21 +17,25 @@
   },
   "dependencies": {
     "@mdx-js/react": "^2.3.0",
+    "babel-plugin-styled-components": "^2.1.4",
     "gatsby": "^5.11.0",
     "gatsby-plugin-image": "^3.11.0",
     "gatsby-plugin-manifest": "^5.11.0",
     "gatsby-plugin-mdx": "^5.11.0",
     "gatsby-plugin-sharp": "^5.11.0",
     "gatsby-plugin-sitemap": "^6.11.0",
+    "gatsby-plugin-styled-components": "^6.11.0",
     "gatsby-source-filesystem": "^5.11.0",
     "gatsby-transformer-sharp": "^5.11.0",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "styled-components": "^5.3.11"
   },
   "devDependencies": {
     "@types/node": "^20.3.1",
     "@types/react": "^18.2.14",
     "@types/react-dom": "^18.2.6",
+    "@types/styled-components": "^5.1.26",
     "typescript": "^5.1.3"
   }
 }
