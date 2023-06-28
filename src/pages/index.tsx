@@ -139,12 +139,36 @@ const User = (props: any) => {
 )}
 
 export default function UsersList() {
+  const props = {
+    label: "Game of Thrones",
+    title: "A Clash of Kings",
+    details:"Lorem ipsum dolor amet you probably haven't heard of them bitters selvage listicle heirloom. Locavore kombucha street art ennui 90's, organic food truck hell of seitan skateboard literally hexagon fixie next level. Lomo salvia yuccie hella roof party echo park vegan four dollar toast cred.",
+    langs: ["Monday", "Demon", "JavaScript"]
+  }
+  const props2 = {
+    reversed: true,
+    label: "Game of Thrones",
+    title: "A Clash of Kings",
+    details:"Lorem ipsum dolor amet you probably haven't heard of them bitters selvage listicle heirloom. Locavore kombucha street art ennui 90's, organic food truck hell of seitan skateboard literally hexagon fixie next level. Lomo salvia yuccie hella roof party echo park vegan four dollar toast cred.",
+    langs: ["Monday", "Demon", "JavaScript"]
+  }
   return (
-    <React.Fragment>
-      <GlobalStyle />
-      <ProjectContainer/>
-    </React.Fragment>
-  )
+
+          <React.Fragment>
+            <GlobalStyle />
+            <Hero />
+            <ProjectContainer 
+              {...props}
+            />
+                  <ProjectContainer 
+              {...props2}
+            />
+                  <ProjectContainer 
+              {...props}
+            />
+          </React.Fragment>
+
+  );
 }
 
 
