@@ -281,8 +281,7 @@ const ProjectContainer = (props: any) => {
     const timeout =  0;
     const fadeClass = 'fade' ;
     const fadeDownClass = 'fadedown' ;
-    console.log("props.langs");
-    console.log(props)
+
     
     return (
     <ProjectContained>
@@ -331,8 +330,8 @@ const ProjectContainer = (props: any) => {
               <img src="https://cdn.vox-cdn.com/thumbor/w-IFN0FWpN4BGfhZaV9EYqs4nLo=/51x0:977x617/1200x800/filters:focal(51x0:977x617)/cdn.vox-cdn.com/uploads/chorus_image/image/50017015/Screen_Shot_2016-07-04_at_12.37.15_PM.0.0.png" alt="" />
             </ImgR> :
             <ImgL >
-            <img src="https://cdn.vox-cdn.com/thumbor/w-IFN0FWpN4BGfhZaV9EYqs4nLo=/51x0:977x617/1200x800/filters:focal(51x0:977x617)/cdn.vox-cdn.com/uploads/chorus_image/image/50017015/Screen_Shot_2016-07-04_at_12.37.15_PM.0.0.png" alt="" />
-          </ImgL>
+                <img src="https://cdn.vox-cdn.com/thumbor/w-IFN0FWpN4BGfhZaV9EYqs4nLo=/51x0:977x617/1200x800/filters:focal(51x0:977x617)/cdn.vox-cdn.com/uploads/chorus_image/image/50017015/Screen_Shot_2016-07-04_at_12.37.15_PM.0.0.png" alt="" />
+            </ImgL>
             } 
        
 

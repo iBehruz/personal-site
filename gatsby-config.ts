@@ -1,35 +1,54 @@
-import type { GatsbyConfig } from "gatsby";
 
-const config: GatsbyConfig = {
+import { GatsbyConfig } from "gatsby";
+import config from "./src/config";
+
+const configGy: GatsbyConfig = {
   siteMetadata: {
-    title: `My personal site`,
-    siteUrl: `https://www.yourdomain.tld`
+    title: 'Ilkhomov Bekhruz',
+    description:
+      'Ilkhomov Bekhruz is a software engineer who specializes in building (and occasionally designing) exceptional digital experiences.',
+    siteUrl: 'https://bekhruzilkhomov.com', // No trailing slash allowed!
   },
-  // More easily incorporate content into your pages through automatic TypeScript type generation and better GraphQL IntelliSense.
-  // If you use VSCode you can also use the GraphQL plugin
-  // Learn more at: https://gatsby.dev/graphql-typegen
-  graphqlTypegen: true,
-  plugins: ["gatsby-plugin-styled-components","gatsby-plugin-image", "gatsby-plugin-sitemap", {
-    resolve: 'gatsby-plugin-manifest',
-    options: {
-      "icon": "src/images/icon.png"
-    }
-  }, "gatsby-plugin-mdx", "gatsby-plugin-sharp", "gatsby-transformer-sharp", {
-    resolve: 'gatsby-source-filesystem',
-    options: {
-      "name": "images",
-      "path": "./src/images/"
+  plugins: [
+    `gatsby-plugin-react-helmet`,
+    `gatsby-plugin-styled-components`,
+    `gatsby-plugin-image`,
+    `gatsby-plugin-sharp`,
+    `gatsby-transformer-sharp`,
+    `gatsby-plugin-sitemap`,
+    `gatsby-plugin-robots-txt`,
+    {
+      resolve: `gatsby-plugin-manifest`,
+      options: {
+        name: 'Ilkhomov Bekhruz',
+        short_name: 'Ilkhomov Bekhruz',
+        start_url: '/',
+        background_color: config.colors.darkNavy,
+        theme_color: config.colors.navy,
+        display: 'minimal-ui',
+        icon: 'src/images/logo.png',
+      },
     },
-    __key: "images"
-  }, {
-    resolve: 'gatsby-source-filesystem',
-    options: {
-      "name": "pages",
-      "path": "./src/pages/"
+    `gatsby-plugin-offline`,
+    {
+      resolve: 'gatsby-source-filesystem',
+      options: {
+        name: 'content',
+        path: `${__dirname}/content/`,
+      },
     },
-    __key: "pages"
-  }]
+    {
+      resolve: 'gatsby-source-filesystem',
+      options: {
+        name: 'featured',
+        path: `${__dirname}/content/featured`,
+      },
+    },
+    {
+      resolve: `gatsby-transformer-remark`,
+
+    },
+  ],
 };
 
-
-export default config;
+export default configGy;
