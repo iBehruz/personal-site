@@ -73,9 +73,14 @@ const navLinks = [
       url: '/#projects',
     },
     {
+      name: 'Certificates',
+      url: '/#certificates',
+    },
+    {
       name: 'Contact',
       url: '/#contact',
     },
+
   ];
 
 

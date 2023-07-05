@@ -16,6 +16,7 @@ import {
   IconStar,
   IconTwitter,
 } from './';
+import IconUpwork from './upwork';
 
 const Icon = ({ name }: any) => {
   switch (name) {
@@ -47,10 +48,13 @@ const Icon = ({ name }: any) => {
       return <IconStar />;
     case 'Twitter':
       return <IconTwitter />;
+    case 'Upwork':
+      return <IconUpwork />
     default:
       return <IconExternal />;
   }
 };
+
 
 Icon.propTypes = {
   name: PropTypes.string.isRequired,

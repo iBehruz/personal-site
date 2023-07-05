@@ -60,57 +60,6 @@ const StyledProject = styled.li`
     }
   }
 
-  &:nth-of-type(odd) {
-    .project-content {
-      grid-column: 7 / -1;
-      text-align: right;
-
-      @media (max-width: 1080px) {
-        grid-column: 5 / -1;
-      }
-      @media (max-width: 768px) {
-        grid-column: 1 / -1;
-        padding: 40px 40px 30px;
-        text-align: left;
-      }
-      @media (max-width: 480px) {
-        padding: 25px 25px 20px;
-      }
-    }
-    .project-tech-list {
-      justify-content: flex-end;
-
-      @media (max-width: 768px) {
-        justify-content: flex-start;
-      }
-
-      li {
-        margin: 0 0 5px 20px;
-
-        @media (max-width: 768px) {
-          margin: 0 10px 5px 0;
-        }
-      }
-    }
-    .project-links {
-      justify-content: flex-end;
-      margin-left: 0;
-      margin-right: -10px;
-
-      @media (max-width: 768px) {
-        justify-content: flex-start;
-        margin-left: -10px;
-        margin-right: 0;
-      }
-    }
-    .project-image {
-      grid-column: 1 / 8;
-
-      @media (max-width: 768px) {
-        grid-column: 1 / -1;
-      }
-    }
-  }
 
   .project-content {
     position: relative;
@@ -324,11 +273,11 @@ const StyledProject = styled.li`
   }
 `;
 
-const Featured = () => {
+const Certificates = () => {
   const data = useStaticQuery(graphql`
     {
-      featured: allMarkdownRemark(
-        filter: { fileAbsolutePath: { regex: "/content/featured/" } }
+      certificates: allMarkdownRemark(
+        filter: { fileAbsolutePath: { regex: "/content/certificates/" } }
         sort: { fields: [frontmatter___date], order: ASC }
       ) {
         edges {
@@ -341,8 +290,9 @@ const Featured = () => {
                 }
               }
               tech
-              github
               external
+              company
+              showIn
             }
             html
           }
@@ -351,7 +301,7 @@ const Featured = () => {
     }
   `);
 
-  const featuredProjects = data.featured.edges.filter(({ node }: any) => node);
+  const featuredProjects = data.certificates.edges.filter(({ node }: any) => node);
   const revealTitle = useRef(null);
   const revealProjects = useRef([]);
   const prefersReducedMotion = usePrefersReducedMotion();
@@ -366,67 +316,48 @@ const Featured = () => {
   }, []);
 
   return (
-    <section id="projects">
+    <section id="certificates">
       <h2 className="numbered-heading" ref={revealTitle}>
-        Some Things I’ve Built
+        Some certificates that I’ve earned 
       </h2>
 
       <StyledProjectsGrid>
         {featuredProjects &&
           featuredProjects.map(({ node }: any, i: number) => {
             const { frontmatter, html } = node;
-            const { external, title, tech, github, cover, cta } = frontmatter;
+            const { external, title, tech, github, cover, company, showIn } = frontmatter;
             const image = getImage(cover);
 
+            if(showIn != false)
             return (
               <StyledProject key={i} >
-                <div className="project-content">
-                  <div>
-                    <p className="project-overline">Featured Project</p>
+              <div className="project-content">
+                <div>
+                  <p className="project-overline">{company}</p>
 
-                    <h3 className="project-title">
-                      <a href={external}>{title}</a>
-                    </h3>
+                  <h3 className="project-title">
+                    <a href={external}>{title}</a>
+                  </h3>
 
-                    <div
-                      className="project-description"
-                      dangerouslySetInnerHTML={{ __html: html }}
-                    />
+   
 
-                    {tech.length && (
-                      <ul className="project-tech-list">
-                        {tech.map((tech: any, i: number) => (
-                          <li key={i}>{tech}</li>
-                        ))}
-                      </ul>
-                    )}
+                  {tech.length && (
+                    <ul className="project-tech-list">
+                      {tech.map((tech: any, i: number) => (
+                        <li key={i}> • {tech}</li>
+                      ))}
+                    </ul>
+                  )}
 
-                    <div className="project-links">
-                      {cta && (
-                        <a href={cta} aria-label="Course Link" className="cta">
-                          Learn More
-                        </a>
-                      )}
-                      {github && (
-                        <a href={github} aria-label="GitHub Link">
-                          <Icon name="GitHub" />
-                        </a>
-                      )}
-                      {external && !cta && (
-                        <a href={external} aria-label="External Link" className="external">
-                          <Icon name="External" />
-                        </a>
-                      )}
-                    </div>
-                  </div>
                 </div>
+              </div>
 
-                <div className="project-image">
-                  <a href={external ? external : github ? github : '#'}>
-                    <GatsbyImage image={image!} alt={title} className="img" />
-                  </a>
-                </div>
-              </StyledProject>
+              <div className="project-image">
+                <a href={external ? external : github ? github : '#'}>
+                  <GatsbyImage image={image!} alt={title} className="img" />
+                </a>
+              </div>
+            </StyledProject>
             );
           })}
       </StyledProjectsGrid>
@@ -434,4 +365,4 @@ const Featured = () => {
   );
 };
 
-export default Featured;
+export default Certificates;

@@ -12,6 +12,7 @@ import About from "../components/sections/about"
 import Jobs from "../components/sections/jobs"
 import Featured from "../components/sections/featured"
 import Contact from "../components/sections/contact"
+import Certificates from "../components/sections/certificates"
 
 
 const StyledMainContainer = styled.main`
@@ -26,6 +27,7 @@ const IndexPage = ({ location }: any) => (
       <Jobs />
       <Featured />
       <Projects />
+      <Certificates />
       <Contact />
       
     </StyledMainContainer>
