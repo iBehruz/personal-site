@@ -2,9 +2,6 @@
 import React from "react"
 import styled from "styled-components"
 
-import { createGlobalStyle } from "styled-components"
-import ProjectContainer from "../components/project_container"
-import Nav from "../components/nav"
 import Hero from "../components/sections/hero"
 import Layout from "../components/layout"
 import Projects from "../components/sections/projects"
